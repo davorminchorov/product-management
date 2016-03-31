@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="productManagement">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Acme Product Management</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/toastr.css"/>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <a class="navbar-brand" ui-sref="home">Acme Product Management</a>
+
+            <div class="navbar-header">
+                <button type="button"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse"
+                        class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="productList"> Product List </a></li>
+                    <li>
+                        <a ui-sref="productEdit.info({productId:0})">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            Add Product
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="priceAnalytics">Price Analytics</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ui-view></div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Twitter Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="js/toastr.js"></script>
+
+    <!-- Libraries -->
+    <script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/angular-mocks.js"></script>
+    <script src="js/angular-ui-router.js"></script>
+    <script src="js/ui-utils.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="js/d3.js"></script>
+    <script src="js/angular-charts.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/productResource.js"></script>
+    <script src="common/services/productResourceMock.js"></script>
+    <script src="common/services/productService.js"></script>
+
+    <!-- Product Controllers -->
+    <script src="app/products/ProductListCtrl.js"></script>
+    <script src="app/products/ProductDetailCtrl.js"></script>
+    <script src="app/products/ProductEditCtrl.js"></script>
+
+    <script src="app/prices/PriceAnalyticsCtrl.js"></script>
+</body>
+</html>

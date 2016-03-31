@@ -1,0 +1,124 @@
+<form class="form-horizontal" name="productForm" novalidate>
+
+    <fieldset>
+        <legend>Basic Product Information</legend>
+        <div class="form-group"
+             ng-class="{'has-error': productForm.inputProductName.$invalid
+                                  && productForm.inputProductName.$dirty}">
+
+            <label for="inputProductName"
+                   class="col-md-2 control-label">
+                Product Name:
+            </label>
+
+            <div class="col-md-4">
+                <input type="text"
+                       id="inputProductName"
+                       name="inputProductName"
+                       class="form-control"
+                       placeholder="Product Name (required)"
+                       ng-model="vm.product.productName"
+                        required
+                        ng-minlength="4"
+                        ng-maxlength="12" />
+            </div>
+
+            <span class="help-block has-errors">
+                <span ng-messages="productForm.productName.$error">
+                    <span ng-message="required">
+                        Required
+                    </span>
+                    <span ng-message="minlength">
+                        Minimum length of 4 characters
+                    </span>
+                    <span ng-message="max-length">
+                        Maximum length of 12 characters
+                    </span>
+                </span>
+            </span>
+
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': productForm.inputProductCode.$invalid
+                                  && productForm.inputProductCode.$dirty}">
+
+            <label class="col-md-2 control-label"
+                   for="inputProductCode">Product Code:</label>
+
+            <div class="col-md-4">
+                <input id="inputProductCode"
+                       name="inputProductCode"
+                       class="form-control"
+                       ui-mask="AAA-**** (required)"
+                       ng-model="vm.product.productCode"
+                       required />
+            </div>
+
+            <span class="help-block has-errors">
+                  <span ng-messages="productForm.productCode.$error">
+                    <span ng-message="required">
+                        Required
+                    </span>
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="inputAvailabilityDate">Availability:</label>
+
+            <div class="col-md-4">
+                <div class="input-group">
+
+                    <input id="inputAvailabilityDate"
+                           class="form-control"
+                           type="text"
+                           is-opened="vm.opened"
+                           datepicker-popup="MMM dd, yyyy"
+                           ng-model="vm.product.releaseDate"/>
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-default"
+                                ng-click="vm.open($event)">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="inputDescription" class="col-md-2 control-label">Description:</label>
+                <div class="col-md-10">
+                    <textarea id="inputDescription"
+                              class="form-control"
+                              placeholder="Description"
+                              rows="3"
+                              ng-model="vm.product.description"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            ng-click="vm.submit(productForm.$valid)">
+                        Save
+                    </button>
+                </span>
+
+                <span>
+                    <button class="btn btn-default"
+                            ng-click="vm.cancel()">
+                        Cancel
+                    </button>
+                </span>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
